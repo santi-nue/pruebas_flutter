@@ -20,15 +20,15 @@ jobs:
         with:
           flutter-version: 3.19.5
           channel: stable
-          flutter-version-file: hola/pubspec.yaml 
       - name: Install project dependencies
-        run: |
-           cd hola
-           flutter pub get
+        run: flutter pub get
+        working-directory: ./hola
       - name: Build artifacts
         run: flutter build windows --release -v
+        working-directory: ./hola
       - name: Build Installer
         run: iex ("& {0} {1} {2}" -f '"C:\Program Files (x86)\Inno Setup 6\iscc.exe"',"/DMyAppVersion='${{github.ref_name}}'", ".\inno_setup.iss")
+        working-directory: ./hola
       - name: Archive Release
         uses: thedoctor0/zip-release@master
         with:
