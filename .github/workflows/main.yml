@@ -21,7 +21,9 @@ jobs:
           flutter-version: 3.16.8
           channel: stable
       - name: Install project dependencies
-        run: flutter pub get
+        run: |
+           cd hola
+           flutter pub get
       - name: Build artifacts
         run: flutter build windows --release -v
       - name: Build Installer
