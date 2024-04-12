@@ -58,3 +58,7 @@ class _CasaState extends State<Casa> {
     );
   }
 }
+
+Widget btn_propiedades(funcion, String txt) {
+  return OutlinedButton(onPressed: funcion,style: ButtonStyle(shape: RoundedRectangleBorder(borderRadius: )), child: Text(txt),);
+}
